@@ -14,7 +14,7 @@ import groovy.json.JsonOutput
  *
  */
 metadata {
-    definition (name: "Arrival Sensor HA", namespace: "smartthings", author: "SmartThings") {
+    definition (name: "Arrival Sensor HA - Fiction", namespace: "scoutzfiction", author: "Fiction") {
         capability "Tone"
         capability "Actuator"
         capability "Presence Sensor"
@@ -67,7 +67,7 @@ def installed() {
 }
 
 def configure() {
-    def cmds = zigbee.readAttribute(zigbee.POWER_CONFIGURATION_CLUSTER, 0x0020) + zigbee.batteryConfig(20, 20, 0x01)
+    def cmds = zigbee.readAttribute(zigbee.POWER_CONFIGURATION_CLUSTER, 0x0020) + zigbee.batteryConfig(10, 10, 0x01)
     log.debug "configure -- cmds: ${cmds}"
     return cmds
 }
